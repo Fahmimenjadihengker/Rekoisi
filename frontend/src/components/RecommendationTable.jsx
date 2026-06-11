@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import KeywordBadge from './KeywordBadge.jsx'
 import SimilarityBadge from './SimilarityBadge.jsx'
 
 export default function RecommendationTable({ recommendations }) {
@@ -20,7 +19,6 @@ export default function RecommendationTable({ recommendations }) {
               <th className="px-5 py-4">Peringkat</th>
               <th className="px-5 py-4">Judul Rekomendasi</th>
               <th className="px-5 py-4">Skor</th>
-              <th className="px-5 py-4">Kata Kunci</th>
               <th className="px-5 py-4">Aksi</th>
             </tr>
           </thead>
@@ -33,11 +31,6 @@ export default function RecommendationTable({ recommendations }) {
                   <p className="mt-1 text-xs font-semibold text-slate-500">{item.author}</p>
                 </td>
                 <td className="px-5 py-5"><SimilarityBadge score={item.similarity_score} /></td>
-                <td className="px-5 py-5">
-                  <div className="flex flex-wrap gap-2">
-                    {(item.keywords || []).map((keyword) => <KeywordBadge key={keyword}>{keyword}</KeywordBadge>)}
-                  </div>
-                </td>
                 <td className="px-5 py-5">
                   <Link to={`/poems/${item.id}`} className="font-bold text-ocean hover:text-teal-900">Detail</Link>
                 </td>
@@ -56,9 +49,6 @@ export default function RecommendationTable({ recommendations }) {
             </div>
             <h3 className="font-serif text-xl font-bold">{item.title}</h3>
             <p className="mt-1 text-sm font-semibold text-slate-500">{item.author}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {(item.keywords || []).map((keyword) => <KeywordBadge key={keyword}>{keyword}</KeywordBadge>)}
-            </div>
             <Link to={`/poems/${item.id}`} className="mt-4 inline-block font-bold text-ocean">Lihat Detail</Link>
           </article>
         ))}

@@ -20,11 +20,11 @@ export default function Home() {
             <Sparkles size={18} /> Content-based filtering untuk puisi Indonesia
           </div>
           <h1 className="font-serif text-5xl font-black leading-tight text-ink md:text-7xl">
-            Sistem Rekomendasi Puisi Indonesia
+            Rekoisi
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Temukan puisi dengan nuansa makna serupa melalui representasi teks IndoBERT, perhitungan cosine similarity,
-            dan kata kunci sebagai interpretasi hasil rekomendasi.
+            Rekoisi adalah singkatan dari rekomendasi puisi. Temukan puisi Indonesia dengan nuansa makna serupa
+            melalui representasi teks IndoBERT, perhitungan cosine similarity, dan kata kunci sebagai interpretasi hasil rekomendasi.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link to="/poems" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-ocean px-6 py-4 font-black text-white shadow-soft transition hover:bg-teal-800">

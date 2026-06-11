@@ -5,8 +5,6 @@ import { NavLink, Link } from 'react-router-dom'
 const links = [
   { to: '/', label: 'Beranda' },
   { to: '/poems', label: 'Daftar Puisi' },
-  { to: '/evaluation', label: 'Evaluasi' },
-  { to: '/about-method', label: 'Metode' },
 ]
 
 export default function Navbar() {
@@ -21,10 +19,10 @@ export default function Navbar() {
       <nav className="container-page flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-indigoDeep to-ocean text-lg font-black text-white">
-            IB
+            R
           </div>
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-ocean">IndoBERT</p>
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-ocean">Rekoisi</p>
             <p className="font-serif text-lg font-bold text-ink">Rekomendasi Puisi</p>
           </div>
         </Link>

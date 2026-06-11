@@ -94,18 +94,17 @@ export default function PoemDetail() {
             <Sparkles size={20} /> {recommendationLoading ? 'Memuat Rekomendasi...' : 'Tampilkan Rekomendasi'}
           </button>
           {recommendationError && <p className="mt-4 rounded-2xl bg-red-50 p-4 font-semibold text-red-700">{recommendationError}</p>}
-        </aside>
-      </div>
 
-      <div className="mt-10">
-        <div className="mb-5 flex flex-col justify-between gap-2 md:flex-row md:items-end">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-ocean">Top-5</p>
-            <h2 className="mt-2 font-serif text-3xl font-black">Rekomendasi Puisi Serupa</h2>
+          <div className="mt-8">
+            <div className="mb-5">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.22em] text-ocean">Top-5</p>
+                <h2 className="mt-2 font-serif text-3xl font-black">Rekomendasi Puisi Serupa</h2>
+              </div>
+            </div>
+            {recommendationLoading ? <LoadingState label="Mengambil rekomendasi..." /> : <RecommendationTable recommendations={recommendationPayload?.recommendations} />}
           </div>
-          <p className="text-sm font-semibold text-slate-500">Skor ditampilkan dengan 4 angka desimal.</p>
-        </div>
-        {recommendationLoading ? <LoadingState label="Mengambil rekomendasi..." /> : <RecommendationTable recommendations={recommendationPayload?.recommendations} />}
+        </aside>
       </div>
     </section>
   )
