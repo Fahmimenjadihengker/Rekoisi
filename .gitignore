@@ -1,0 +1,11 @@
+backend/venv/
+backend/__pycache__/
+backend/services/__pycache__/
+backend/schemas/__pycache__/
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+*.pyc
+/cosine_sim_matrix.npy
+/puisi_embeddings.npy
+/puisi_clean.csv
