@@ -5,6 +5,7 @@ backend/schemas/__pycache__/
 frontend/node_modules/
 frontend/dist/
 frontend/.env
+docs/
 *.pyc
 /cosine_sim_matrix.npy
 /puisi_embeddings.npy
