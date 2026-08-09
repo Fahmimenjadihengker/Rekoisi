@@ -37,9 +37,6 @@ export default function Poems() {
       <div className="mb-8 max-w-3xl">
         <p className="text-sm font-black uppercase tracking-[0.24em] text-ocean">Dataset Puisi</p>
         <h1 className="mt-3 font-serif text-4xl font-black md:text-5xl">Daftar Puisi Indonesia</h1>
-        <p className="mt-4 text-lg leading-8 text-slate-600">
-          Cari puisi berdasarkan judul, penulis, atau potongan isi, lalu gunakan salah satu puisi sebagai acuan rekomendasi.
-        </p>
       </div>
 
       <SearchBar value={search} onChange={setSearch} onSubmit={handleSubmit} />

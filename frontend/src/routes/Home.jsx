@@ -16,15 +16,13 @@ export default function Home() {
     <section className="container-page py-14 md:py-20">
       <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-bold text-teal-800">
-            <Sparkles size={18} /> Content-based filtering untuk puisi Indonesia
-          </div>
           <h1 className="font-serif text-5xl font-black leading-tight text-ink md:text-7xl">
             Rekoisi
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Rekoisi adalah singkatan dari rekomendasi puisi. Temukan puisi Indonesia dengan nuansa makna serupa
-            melalui representasi teks IndoBERT, perhitungan cosine similarity, dan kata kunci sebagai interpretasi hasil rekomendasi.
+            Jelajahi puisi Indonesia dan temukan karya lain yang memiliki kedekatan makna dengan puisi pilihanmu.
+            Rekoisi memanfaatkan embedding IndoBERT dan cosine similarity untuk menyajikan rekomendasi yang relevan,
+            lengkap dengan kata kunci agar hubungan antarpuisi lebih mudah dipahami.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link to="/poems" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-ocean px-6 py-4 font-black text-white shadow-soft transition hover:bg-teal-800">

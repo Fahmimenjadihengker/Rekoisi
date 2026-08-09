@@ -5,7 +5,7 @@ export default function RecommendationTable({ recommendations }) {
   if (!recommendations?.length) {
     return (
       <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
-        Rekomendasi belum ditampilkan.
+        Rekomendasi tidak tersedia.
       </div>
     )
   }

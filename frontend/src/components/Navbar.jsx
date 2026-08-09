@@ -17,14 +17,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/60 bg-slate-50/85 backdrop-blur-xl">
       <nav className="container-page flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-indigoDeep to-ocean text-lg font-black text-white">
-            R
-          </div>
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-ocean">Rekoisi</p>
-            <p className="font-serif text-lg font-bold text-ink">Rekomendasi Puisi</p>
-          </div>
+        <Link to="/" className="font-serif text-2xl font-black text-ink transition hover:text-ocean" onClick={() => setOpen(false)}>
+          rekoisi
         </Link>
 
         <div className="hidden items-center gap-2 md:flex">

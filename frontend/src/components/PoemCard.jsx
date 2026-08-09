@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export default function PoemCard({ poem }) {
@@ -10,18 +10,12 @@ export default function PoemCard({ poem }) {
       <h3 className="font-serif text-2xl font-bold leading-tight text-ink">{poem.title || 'Tanpa Judul'}</h3>
       <p className="mt-2 text-sm font-semibold text-ocean">{poem.author || 'Tidak Diketahui'}</p>
       <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">{poem.preview}</p>
-      <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+      <div className="mt-6 flex">
         <Link
           to={`/poems/${poem.id}`}
           className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-ocean hover:text-ocean"
         >
           Lihat Detail <ArrowRight size={16} />
-        </Link>
-        <Link
-          to={`/poems/${poem.id}?recommend=true`}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-indigoDeep px-4 py-3 text-sm font-bold text-white transition hover:bg-indigo-900"
-        >
-          <Sparkles size={16} /> Rekomendasi
         </Link>
       </div>
     </article>
