@@ -1,7 +1,11 @@
 from pathlib import Path
+import re
 
 import numpy as np
 import pandas as pd
+
+
+LETTER_PATTERN = r"A-Za-zÀ-ÿ"
 
 
 class DataRepository:
@@ -59,13 +63,11 @@ class DataRepository:
         if search:
             keyword = search.strip()
             if keyword:
-                mask = (
-                    df["title"].str.contains(keyword, case=False, na=False, regex=False)
-                    | df["author"].str.contains(keyword, case=False, na=False, regex=False)
-                    | df["puisi"].str.contains(keyword, case=False, na=False, regex=False)
-                    | df["puisi_clean"].str.contains(keyword, case=False, na=False, regex=False)
-                )
-                filtered = df[mask]
+                terms = re.findall(rf"[{LETTER_PATTERN}]+", keyword.lower())
+                if terms:
+                    search_scores = df.apply(lambda row: self.search_score(row, terms), axis=1)
+                    filtered = df[search_scores > 0].assign(_search_score=search_scores[search_scores > 0])
+                    filtered = filtered.sort_values(["_search_score", "id"], ascending=[False, True])
 
         total = int(len(filtered))
         start = (page - 1) * limit
@@ -78,6 +80,29 @@ class DataRepository:
             "total": total,
             "data": [self.poem_preview(row) for _, row in rows.iterrows()],
         }
+
+    @staticmethod
+    def search_score(row: pd.Series, terms: list[str]) -> int:
+        fields = [
+            ("title", 100),
+            ("author", 60),
+            ("puisi", 25),
+            ("puisi_clean", 25),
+        ]
+        score = 0
+
+        for term in terms:
+            pattern = re.compile(rf"(?<![{LETTER_PATTERN}]){re.escape(term)}[{LETTER_PATTERN}]*", re.IGNORECASE)
+            matched = False
+            for field, weight in fields:
+                if pattern.search(str(row.get(field, ""))):
+                    score += weight
+                    matched = True
+                    break
+            if not matched:
+                return 0
+
+        return score
 
     def poem_preview(self, row: pd.Series) -> dict:
         text = str(row.get("puisi", "")).strip()

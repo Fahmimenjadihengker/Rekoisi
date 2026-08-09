@@ -142,7 +142,7 @@ Output Directory: dist
 
 - `GET /api/health`: cek status API
 - `GET /api/stats`: statistik dataset dan model
-- `GET /api/poems?page=1&limit=12&search=cinta`: daftar puisi dengan pagination dan pencarian
+- `GET /api/poems?page=1&limit=12&search=cinta`: daftar puisi dengan pagination dan pencarian berbasis kata
 - `GET /api/poems/{poem_id}`: detail puisi
 - `GET /api/poems/{poem_id}/recommendations?top_n=5&include_keywords=true`: rekomendasi top-N
 - `POST /api/evaluate`: evaluasi satu puisi berdasarkan keyword match
@@ -151,8 +151,8 @@ Output Directory: dist
 ## Halaman Website
 
 - `/`: beranda dengan ringkasan sistem dan statistik dataset
-- `/poems`: daftar puisi, pencarian, pagination, dan tombol rekomendasi
-- `/poems/:id`: detail puisi, keyword, dan top-5 rekomendasi
+- `/poems`: daftar puisi, pencarian berbasis kata, pagination, dan tombol lihat detail
+- `/poems/:id`: detail puisi, top-5 rekomendasi otomatis, dan keyword puisi acuan
 - `/evaluation`: tabel dan grafik precision
 - `/about-method`: alur metode penelitian
 

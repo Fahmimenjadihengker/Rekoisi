@@ -198,8 +198,8 @@ Menampilkan ringkasan aplikasi dan mengarahkan pengguna untuk mencoba rekomendas
 
 Konten:
 
-1. Judul aplikasi: “Sistem Rekomendasi Puisi Indonesia”.
-2. Deskripsi singkat metode:
+1. Judul aplikasi: “Rekoisi”.
+2. Deskripsi singkat aplikasi dan metode:
    - IndoBERT untuk representasi teks.
    - Cosine similarity untuk menghitung kemiripan.
    - KeyBERT untuk interpretasi kata kunci.
@@ -231,14 +231,16 @@ Menampilkan daftar puisi yang tersedia dalam dataset.
 Fitur:
 
 1. Search berdasarkan judul.
-2. Search berdasarkan isi puisi.
-3. Pagination.
-4. Card puisi berisi:
+2. Search berdasarkan penulis.
+3. Search berdasarkan isi puisi.
+4. Pencarian memakai pencocokan kata/prefix agar query seperti `ayah` tidak cocok dengan kata seperti `cahaya`.
+5. Hasil pencarian diprioritaskan berdasarkan kecocokan pada judul, penulis, lalu isi puisi.
+6. Pagination.
+7. Card puisi berisi:
    - Judul
    - Penulis
    - Potongan isi puisi
    - Tombol “Lihat Detail”
-   - Tombol “Cari Rekomendasi”
 
 UI requirement:
 
@@ -264,22 +266,21 @@ Konten:
 1. Judul puisi acuan.
 2. Penulis.
 3. Isi puisi lengkap.
-4. Kata kunci puisi acuan.
-5. Tombol “Tampilkan Rekomendasi”.
-6. Tabel rekomendasi top-5.
+4. Tabel rekomendasi top-5 yang dimuat otomatis.
+5. Kata kunci puisi acuan di bawah rekomendasi.
 
 Tabel rekomendasi berisi:
 
-| Peringkat | Judul Rekomendasi | Skor Cosine Similarity | Kata Kunci | Aksi |
-|---|---|---:|---|---|
-| 1 | Mentariku | 0.8970 | hatiku, anganku, cintaku | Detail |
-| 2 | Lingkaran Pesan | 0.8949 | hatiku, jiwaku, mencintaimu | Detail |
+| Peringkat | Judul Rekomendasi | Skor Cosine Similarity | Aksi |
+|---|---|---:|---|
+| 1 | Mentariku | 0.8970 | Detail |
+| 2 | Lingkaran Pesan | 0.8949 | Detail |
 
 Catatan:
 
 - Skor similarity tampil dengan 4 angka desimal.
 - Rekomendasi tidak boleh menampilkan puisi acuan itu sendiri.
-- Jika KeyBERT lambat, kata kunci boleh dimuat setelah rekomendasi tampil.
+- Rekomendasi dan kata kunci dimuat otomatis saat halaman detail dibuka.
 
 ### 8.4 Halaman Evaluasi
 
@@ -401,7 +402,7 @@ Response:
 
 Tujuan:
 
-Mengambil daftar puisi dengan pagination dan search.
+Mengambil daftar puisi dengan pagination dan search berbasis kata.
 
 Query params:
 
